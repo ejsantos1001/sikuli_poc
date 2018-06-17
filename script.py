@@ -38,21 +38,27 @@ def test_verify_home_location(create_driver):
          zoom = "/Users/santosmac/TestAutomtionLab/sikuli_poc/images/zoom_plus"
          reference = "/Users/santosmac/TestAutomtionLab/sikuli_poc/images/refresh_ref"
          tab = "/Users/santosmac/TestAutomtionLab/sikuli_poc/images/tab"
+         y_m = "/Users/santosmac/TestAutomtionLab/sikuli_poc/images/yellow_man"
+         coffee_bean = "/Users/santosmac/TestAutomtionLab/sikuli_poc/images/coffee_bean"
                  
          ref_pattern = Pattern(reference)  
-         center = ref_pattern.targetOffset(558,415)         
+         center = ref_pattern.targetOffset(526,380)         
          makati_a = Pattern(makati)
          makati_a.targetOffset(-20,20)
          wait(tab) 
          click(tab) 
-         ##wait(page_load,10)
          wait(makati_a,10)
-         time.sleep(1)
-         hover(makati_a)
+         mouseMove(makati_a)
          mouseDown(Button.LEFT)
-         hover(center)
+         mouseMove(center)
          mouseUp(Button.LEFT)
-
+         wheel(makati,WHEEL_DOWN,20)
+         c_p = Pattern(coffee_bean)         
+         condo = c_p.targetOffset(270,54)
+         time.sleep(2)
+         drag(y_m)
+         time.sleep(1)
+         dropAt(condo)
      except FindFailed as e:
          fail_routine_1(e)
 
